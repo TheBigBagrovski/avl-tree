@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdio.h>
-#include <stdlib.h>
+
 // defines node struct and type
 typedef struct node_str { // define node struct and type
     int key;
@@ -16,7 +16,7 @@ typedef struct tree_str {
 } Tree;
 
 Node *newNode(int key);
-Tree *newTree(Node *root);
+Tree *newTree();
 int getHeight(Node *N);
 int getBalanceFactor(Node *node);
 Node *search(Tree *tree, int inputKey);

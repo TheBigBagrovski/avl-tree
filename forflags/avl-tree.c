@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "avl-tree.h"
 
 //constructs a node with the given key and returns its pointer
@@ -11,9 +13,9 @@ Node *newNode(int key) {
 }
 
 //constructs a tree with the given root (some node pointer), returns tree's pointer
-Tree *newTree(Node *root) {
+Tree *newTree() {
     Tree *tree = (Tree *) malloc(sizeof(Tree));    //allocates memory for tree
-    tree->root = root;
+    tree->root = NULL;
     return tree;
 }
 
@@ -22,6 +24,7 @@ int getHeight(Node *N) {
     if (N == NULL) return 0;
     return N->height;
 }
+
 /* gets balance factor of input node
 -2 => right subtree is too high
 -1, 0, 1 => balanced
@@ -185,4 +188,5 @@ void deinitTreeInner(Node *root) {
 
 void deinitTree(Tree *tree) {
     deinitTreeInner(tree->root);
+    free(tree);
 }

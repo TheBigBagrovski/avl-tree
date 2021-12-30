@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         printf("Error while reading file");
         return -1;
     }
-    Tree *tree = newTree(NULL);
+    Tree *tree = newTree();
     int num;
     while (!feof(inputFile)) {
         fscanf(inputFile, "%d\n", &num);

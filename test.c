@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 Tree *createTestTree() {
-    Tree *tree = newTree(NULL);
+    Tree *tree = newTree();
     insert(tree, 50);
     insert(tree, 40);
     insert(tree, 60);
@@ -29,7 +29,7 @@ Tree *createTestTree() {
 }
 
 Tree *createEqualTestTree() {
-    Tree *tree = newTree(NULL);
+    Tree *tree = newTree();
     for (int i = 0; i < 20; i++) insert(tree, 10);
     return tree;
 }
@@ -46,7 +46,7 @@ bool checkBalance(Node *root) {
 }
 
 void testInsert() {
-    Tree *tree = newTree(NULL);
+    Tree *tree = newTree();
     for (int i = 200; i > 0; i -= 10) insert(tree, i);
     Node *a = search(tree, 200);
     Node *b = search(tree, 100);

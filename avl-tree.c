@@ -13,9 +13,9 @@ Node *newNode(int key) {
 }
 
 //constructs a tree with the given root (some node pointer), returns tree's pointer
-Tree *newTree(Node *root) {
+Tree *newTree() {
     Tree *tree = (Tree *) malloc(sizeof(Tree));    //allocates memory for tree
-    tree->root = root;
+    tree->root = NULL;
     return tree;
 }
 
@@ -188,4 +188,5 @@ void deinitTreeInner(Node *root) {
 
 void deinitTree(Tree *tree) {
     deinitTreeInner(tree->root);
+    free(tree);
 }

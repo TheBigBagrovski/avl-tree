@@ -16,7 +16,7 @@ typedef struct tree_str {
 } Tree;
 
 Node *newNode(int key);
-Tree *newTree(Node *root);
+Tree *newTree();
 int getHeight(Node *N);
 int getBalanceFactor(Node *node);
 Node *search(Tree *tree, int inputKey);

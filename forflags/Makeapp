@@ -1,0 +1,12 @@
+OBJS = main.c \
+lib.a
+CC = riscv64-unknown-elf-gcc.exe
+# параметры компиляции
+CFLAGS= -march=rv64iac -mabi=lp64 -O1 --save-temps -std=c11 -pedantic -Wall -Wextra
+INCLUDES+= -I .
+vpath %.c .
+vpath %.a .
+all: a.out
+a.out: $(OBJS)
+	$(CC) $(CFLAGS) $(INCLUDES) $^
+	del *.o *.i *.s *.d

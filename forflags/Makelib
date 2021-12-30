@@ -1,0 +1,18 @@
+OBJS = avl-tree.c \
+
+AR = riscv64-unknown-elf-ar.exe
+CC = riscv64-unknown-elf-gcc.exe
+MYLIBNAME = lib.a
+# параметры компиляции
+CFLAGS= -march=rv64iac -mabi=lp64 -O1 -std=c11 -pedantic -Wall -Wextra
+INCLUDES+= -I .
+vpath %.h .
+vpath %.c .
+# $< = %.c
+# $@ = %.o
+%.o: %.c
+	$(CC) -MD $(CFLAGS) $(INCLUDES) -c $< -o $@
+all: $(MYLIBNAME)
+
+$(MYLIBNAME): avl-tree.o
+	$(AR) -rsc $@ $^
